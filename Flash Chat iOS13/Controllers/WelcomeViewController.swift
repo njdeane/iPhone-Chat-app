@@ -7,30 +7,22 @@
 //
 
 import UIKit
-import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: CLTypingLabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        Using CLTypingLabel pod to achieve animation below
-        titleLabel.text = "⚡️Flashchat"
-        
-        
-        
-//          FOR LOOP TYPING ANIMATION
-//        titleLabel.text = ""
-//        var charIndex = 0.0
-//        let titleText = "⚡️FlashChat"
-//        for letter in titleText {
-//            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
-//                self.titleLabel.text?.append(letter)
-//            }
-//            charIndex += 1
-//        }
+        titleLabel.text = ""
+        var charIndex = 0.0
+        let titleText = "⚡️FlashChat"
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
+                self.titleLabel.text?.append(letter)
+            }
+            charIndex += 1
+        }
        
     }
     
