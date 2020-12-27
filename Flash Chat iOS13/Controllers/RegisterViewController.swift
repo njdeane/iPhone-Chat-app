@@ -13,12 +13,14 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func registerPressed(_ sender: UIButton) {
         if let email = emailTextfield.text, let password = passwordTextfield.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
-                    print(e)
+                    self.errorLabel.text = String(e.localizedDescription)
+                    print(e.localizedDescription)
                 } else {
                     //Navigate to ChatViewController
                     self.performSegue(withIdentifier: "RegisterToChat", sender: self)
